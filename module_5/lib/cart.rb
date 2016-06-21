@@ -1,21 +1,21 @@
 class Cart
 
-  def initiliaze
+  def initialize
     @items = Hash.new
   end
 
   def add(item)
     if (@items.has_key? item)
-      @items[item] += 1
+      @items[:item][:quanity] += 1
     else
-      @items[item] = 1
+      @items["#{item}"] = item
     end
   end
 
   def value
     total = 0
-    @items.each do |item|
-      total += item[:value]*@items[item]
+    @items.each do |item, v|
+      total += v[:value]*v[:quantity]
     end
     return total
   end
